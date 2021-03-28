@@ -5,7 +5,8 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "server:start": "nodemon backend/index.ts"
+    "server:start": "nodemon backend/index.ts",
+    "server:start:prod": "node backend/index.ts"
   },
   "dependencies": {
     "@vueuse/core": "^4.3.5",
