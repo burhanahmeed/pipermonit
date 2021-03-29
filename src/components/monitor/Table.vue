@@ -62,12 +62,23 @@ export default defineComponent({
       <th>Duration</th>
     </thead>
     <tbody>
-      <tr class="text-center border-b border-gray-700" v-for="(event, i) in events" :key="i">
-        <td class="py-3" :class="event.status == 'up' ? 'text-green-500': 'text-red-500'">{{event.status}}</td>
-        <td>{{convertDate(event.date)}}</td>
-        <td>{{event.reason}}</td>
-        <td class="text-sm">{{getDuration(i, event.date)}}</td>
-      </tr>
+      <template v-if="events.length">
+        <tr class="text-center border-b border-gray-700" v-for="(event, i) in events" :key="i">
+          <td class="py-3" :class="event.status == 'up' ? 'text-green-500': 'text-red-500'">{{event.status}}</td>
+          <td>{{convertDate(event.date)}}</td>
+          <td>{{event.reason}}</td>
+          <td class="text-sm">{{getDuration(i, event.date)}}</td>
+        </tr>
+      </template>
+      <template v-else>
+        <tr>
+          <td :colspan="4">
+            <div class="p-5 text-center">
+              No data available
+            </div>
+          </td>
+        </tr>
+      </template>
     </tbody>
   </table>
 </template>

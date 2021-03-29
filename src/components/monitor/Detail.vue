@@ -88,7 +88,7 @@ export default defineComponent({
 
   <!-- block chart -->
   <div>
-    <Chart/>
+    <!-- <Chart/> -->
   </div>
   <div class="py-9" v-if="selected">
     <Table :asset="asset" />

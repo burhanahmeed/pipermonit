@@ -29,7 +29,7 @@ export default defineComponent({
       meta: [
         {
           name: `description`,
-          content: 'Monitor your website or API server up to 10 website without any login required.',
+          content: 'Monitor your website or API server up to 1000 website without any login required.',
         },
       ],
     })
@@ -158,7 +158,7 @@ export default defineComponent({
       <button v-else @click="handleUpdate" class="p-2 px-3 bg-blue-400 text-black rounded hover-button">{{isSubmitting ? "Submitting..." : "🙌 Update"}}</button>
     </template>
   </HeaderComp>
-  <section class="main-view px-4 my-4 lg:px-16 lg:my-8">
+  <section class="main-view px-4 my-4 lg:px-16 lg:my-8" style="padding-top: 70px;">
     <div class="flex justify-center">
       <div class="w-full md:w-1/2 md:pb-5 md:mb-5">
         <form action="" v-if="isFormShowed">
