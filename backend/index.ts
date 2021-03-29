@@ -98,9 +98,9 @@ app.get('/getAssetById', userMiddleware, async (req: express.Request, res) => {
           endResult = {
             ...el.data(),
             id: el.id,
-            createdAt: el?.data()?.createdAt.toDate(),
-            updatedAt: el?.data()?.updatedAt.toDate(),
-            lastRunAt: !el?.data()?.lastRunAt ? null : el?.data()?.lastRunAt.toDate()
+            createdAt: el.data().createdAt.toDate(),
+            updatedAt: el.data().updatedAt.toDate(),
+            lastRunAt: !el.data().lastRunAt ? null : el.data().lastRunAt.toDate()
           }
         }
         idx++;

@@ -11,7 +11,7 @@ export default function useSession () {
     const sessSession = sessionStorage.getItem('session');
     if (route.query.session) {
       if (currSession) {
-        sessionStorage.setItem('session', route?.query?.session)
+        sessionStorage.setItem('session', route.query.session)
       }
     } else {
       let sessionId = currSession;

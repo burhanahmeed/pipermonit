@@ -3,15 +3,18 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && backpack build",
     "serve": "vite preview",
-    "server:start": "nodemon backend/index.ts",
-    "server:start:prod": "node backend/index.ts"
+    "server:start": "backpack dev",
+    "server:start:prod": "node ./build/main.js"
   },
   "dependencies": {
     "@vueuse/core": "^4.3.5",
     "@vueuse/head": "^0.5.1",
+    "awesome-typescript-loader": "^5.2.1",
     "axios": "^0.21.1",
+    "babel-eslint": "^10.1.0",
+    "backpack-core": "^0.8.4",
     "cors": "^2.8.5",
     "cron": "^1.8.2",
     "dotenv": "^8.2.0",
@@ -27,6 +30,7 @@
     "vue3-slider": "^1.5.3"
   },
   "devDependencies": {
+    "@babel/preset-stage-0": "^7.8.3",
     "@iconify/json": "^1.1.314",
     "@types/cors": "^2.8.10",
     "@types/express": "^4.17.11",
