@@ -1,3 +1,24 @@
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+import Input from "../components/Input.vue";
+
+export default defineComponent({
+    components: {
+        Input
+    },
+    setup() {
+        
+    },
+    data () {
+        return {
+            showModal: false
+        }
+    },
+})
+</script>
+
+
 <template>
   
 <!-- Section 1 -->
@@ -19,13 +40,36 @@
                         </div>
                         <div class="flex flex-col items-start justify-end w-full pt-4 md:items-center md:w-1/3 md:flex-row md:py-0">
                             <!-- <a href="#" class="w-full px-6 py-2 mr-0 text-gray-700 md:px-0 lg:pl-2 md:mr-4 lg:mr-5 md:w-auto">Sign In</a> -->
-                            <a href="#_" class="inline-flex items-center w-full px-6 py-3 text-sm font-medium leading-4 text-white bg-blue-500 md:px-3 md:w-auto md:rounded-full lg:px-5 hover:bg-blue-500 focus:outline-none md:focus:ring-2 focus:ring-0 focus:ring-offset-2 focus:ring-blue-600">
+                            <a  @click="showModal = true" href="#_" class="inline-flex items-center w-full px-6 py-3 text-sm font-medium leading-4 text-white bg-blue-500 md:px-3 md:w-auto md:rounded-full lg:px-5 hover:bg-blue-500 focus:outline-none md:focus:ring-2 focus:ring-0 focus:ring-offset-2 focus:ring-blue-600">
                               Pro version
                               <span class="absolute top-0 right-0 px-2 py-1 -mt-3 -mr-6 text-xs font-medium leading-tight text-gray-800 bg-green-400 rounded-full">only $9/mo</span>
                             </a>
                         </div>
                     </div>
                 </div>
+                <!-- pro subscription modal -->
+                <vue-final-modal
+                    v-model="showModal"
+                    classes="modal-container"
+                    content-class="modal-content"
+                >
+                    <button class="modal__close" @click="showModal = false">
+                        <mdi-close></mdi-close>
+                    </button>
+                    <span class="modal__title">Do you really need pro version?</span>
+                    <div class="modal__content">
+                        <p>
+                            We will let you know
+                        </p>
+                        <div class="mt-3">
+                            <Input type="email" placeholder="Enter your email" />
+                        </div>
+                        <div class="my-3 text-center">
+                            <button class="bg-blue-500 text-white py-2 px-4 rounded-full">Submit</button>
+                        </div>
+                    </div>
+                </vue-final-modal>
+
                 <div @click="showMenu = !showMenu" class="absolute right-0 flex flex-col items-center items-end justify-center w-10 h-10 bg-white rounded-full cursor-pointer md:hidden hover:bg-gray-100">
                     <svg class="w-6 h-6 text-gray-700" x-show="!showMenu" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" x-cloak="">
                         <path d="M4 6h16M4 12h16M4 18h16"></path>
@@ -134,3 +178,38 @@
 </section>
 
 </template>
+
+<style scoped>
+    ::v-deep .modal-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    ::v-deep .modal-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      margin: 0 1rem;
+      padding: 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.25rem;
+      background: rgb(31, 41, 55);
+    }
+    .modal__title {
+      margin: 0 2rem 0 0;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .modal__close {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+    }
+    </style>
+    
+    <style scoped>
+    .dark-mode div::v-deep .modal-content {
+      border-color: #2d3748;
+      background-color: #1a202c;
+    }
+    </style>

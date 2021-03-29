@@ -149,8 +149,8 @@ export default defineComponent({
 <template>
   <HeaderComp>
     <template v-slot:left>
-      <span class="font-bold">
-        <i-carbon-arrow-left class="font-black cursor-pointer" @click="$router.back()"/> {{name || 'Untitle monitor'}}
+      <span class="font-bold flex">
+        <i-carbon-arrow-left class="font-black cursor-pointer mr-3" @click="$router.back()"/> {{name || 'Untitle monitor'}}
       </span>
     </template>
     <template v-slot:right>
