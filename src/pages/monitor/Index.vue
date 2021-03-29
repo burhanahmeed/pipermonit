@@ -36,7 +36,7 @@ export default defineComponent({
       meta: [
         {
           name: `description`,
-          content: 'Monitor your website or API server up to 10 website without any login required.',
+          content: 'Monitor your website or API server up to 100 website without any login required.',
         },
       ],
     })

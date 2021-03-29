@@ -43,7 +43,7 @@
               <span class="inline md:block">Monitor Your <span class="bg-blue-500">Website</span></span> 
               <span class="relative mt-2 text-transparent bg-clip-text text-blue-400 md:inline-block">Without any Pain</span>
             </h1>
-            <div class="mx-auto mt-5 text-gray-100 md:mt-12 md:max-w-lg md:text-center lg:text-lg">Start monitor up to 1000 websites without login.</div>
+            <div class="mx-auto mt-5 text-gray-100 md:mt-12 md:max-w-lg md:text-center lg:text-lg">Start monitor up to 100 websites without login.</div>
             <div class="flex flex-col items-center mt-12 text-center">
                 <span class="relative inline-flex w-full md:w-auto">
                     <a href="/monitor" type="button" class="inline-flex items-center justify-center w-full px-8 py-4 text-base font-bold leading-6 text-white bg-blue-500 border border-transparent rounded-full md:w-auto hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600">
@@ -86,7 +86,7 @@
         <div class="w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">
             <h3 class="text-lg font-bold text-blue-500 sm:text-xl md:text-2xl">Is it completely free?</h3>
             <p class="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">
-                YES! With PiperMonit you can add up to 1000 assets free.
+                YES! With PiperMonit you can add up to 100 assets free.
             </p>
         </div>
         <div class="w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">
