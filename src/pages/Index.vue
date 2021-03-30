@@ -12,7 +12,8 @@ export default defineComponent({
     },
     data () {
         return {
-            showModal: false
+            showModal: false,
+            showMenu: false
         }
     },
 })
@@ -27,22 +28,22 @@ export default defineComponent({
 
         <nav class="relative z-50 h-24 select-none" x-data="{ showMenu: false }">
             <div class="container relative flex flex-wrap items-center justify-between h-24 mx-auto overflow-hidden font-medium border-b border-gray-500 md:overflow-visible lg:justify-center sm:px-4 md:px-2">
-                <div class="flex items-center justify-start w-1/4 h-full pr-4">
+                <div class="flex items-center justify-start w-2/4 md:w-1/4 h-full pr-4">
                     <a href="/" class="inline-block py-4 md:py-0 flex">
                       <i-carbon-chart-scatter class="font-black text-blue-400"/>&nbsp; PiperMonit
                     </a>
                 </div>
-                <div class="top-0 left-0 items-start hidden w-full h-full p-4 text-sm bg-gray-900 bg-opacity-50 md:items-center md:w-3/4 md:absolute lg:text-base md:bg-transparent md:p-0 md:relative md:flex" :class="{'flex fixed': showMenu, 'hidden': !showMenu }">
-                    <div class="flex-col w-full h-auto overflow-hidden bg-white rounded-lg md:bg-transparent md:overflow-visible md:rounded-none md:relative md:flex md:flex-row">
-                        <a href="#_" class="inline-flex items-center block w-auto h-16 px-6 text-xl font-black leading-none text-gray-900 md:hidden">tails<span class="text-indigo-600">.</span></a>
+                <div class="top-0 left-0 items-start w-full h-full p-4 text-sm bg-gray-900 bg-opacity-50 md:items-center md:w-3/4 md:absolute lg:text-base md:bg-transparent md:p-0 md:relative md:flex" :class="{'flex fixed': showMenu, 'hidden': !showMenu }">
+                    <div class="flex-col w-full h-auto overflow-hidden bg-white rounded-lg md:bg-transparent md:overflow-visible md:rounded-none md:relative md:flex md:flex-row pt-14">
+                        <!-- <a href="#_" class="inline-flex items-center block w-auto h-16 px-6 text-xl font-black leading-none text-gray-900 md:hidden">tails<span class="text-indigo-600">.</span></a> -->
                         <div class="flex flex-col items-start justify-center w-full space-x-6 text-center lg:space-x-8 md:w-2/3 md:mt-0 md:flex-row md:items-center">
                         
                         </div>
                         <div class="flex flex-col items-start justify-end w-full pt-4 md:items-center md:w-1/3 md:flex-row md:py-0">
                             <!-- <a href="#" class="w-full px-6 py-2 mr-0 text-gray-700 md:px-0 lg:pl-2 md:mr-4 lg:mr-5 md:w-auto">Sign In</a> -->
                             <a  @click="showModal = true" href="#_" class="inline-flex items-center w-full px-6 py-3 text-sm font-medium leading-4 text-white bg-blue-500 md:px-3 md:w-auto md:rounded-full lg:px-5 hover:bg-blue-500 focus:outline-none md:focus:ring-2 focus:ring-0 focus:ring-offset-2 focus:ring-blue-600">
-                              Pro version
-                              <span class="absolute top-0 right-0 px-2 py-1 -mt-3 -mr-6 text-xs font-medium leading-tight text-gray-800 bg-green-400 rounded-full">only $9/mo</span>
+                              ⭐️ Go Pro
+                              <!-- <span class="absolute top-0 right-0 px-2 py-1 -mt-3 -mr-6 text-xs font-medium leading-tight text-gray-800 bg-green-400 rounded-full">only $9/mo</span> -->
                             </a>
                         </div>
                     </div>
@@ -58,23 +59,15 @@ export default defineComponent({
                     </button>
                     <span class="modal__title">Do you really need pro version?</span>
                     <div class="modal__content">
-                        <p>
-                            We will let you know
-                        </p>
-                        <div class="mt-3">
-                            <Input type="email" placeholder="Enter your email" />
-                        </div>
-                        <div class="my-3 text-center">
-                            <button class="bg-blue-500 text-white py-2 px-4 rounded-full">Submit</button>
-                        </div>
+                        Think again, just enjoy our free and open source service for now.
                     </div>
                 </vue-final-modal>
 
                 <div @click="showMenu = !showMenu" class="absolute right-0 flex flex-col items-center items-end justify-center w-10 h-10 bg-white rounded-full cursor-pointer md:hidden hover:bg-gray-100">
-                    <svg class="w-6 h-6 text-gray-700" x-show="!showMenu" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" x-cloak="">
+                    <svg class="w-6 h-6 text-gray-700" v-if="!showMenu" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" x-cloak="">
                         <path d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
-                    <svg class="w-6 h-6 text-gray-700" x-show="showMenu" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" x-cloak="">
+                    <svg class="w-6 h-6 text-gray-700" v-if="showMenu" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" x-cloak="">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </div>
@@ -82,13 +75,15 @@ export default defineComponent({
         </nav>
 
         <!-- Main Hero Content -->
-        <div class="container max-w-lg px-4 py-32 mx-auto text-left md:max-w-none md:text-center">
-            <h1 class="text-5xl font-extrabold leading-10 tracking-tight text-left text-white md:text-center sm:leading-none md:text-6xl lg:text-7xl">
-              <span class="inline md:block">Monitor Your <span class="bg-blue-500">Website</span></span> 
-              <span class="relative mt-2 text-transparent bg-clip-text text-blue-400 md:inline-block">Without any Pain</span>
+        <div class="container max-w-lg px-4 pt-16 md:pt-32 pb-32 mx-auto text-left md:max-w-none md:text-center">
+            <h1 class="text-4xl font-extrabold leading-10 tracking-tight text-left text-white md:text-center sm:leading-none md:text-6xl lg:text-7xl">
+              <span class="leading-normal md:leading-none inline md:block">Monitor Your <span class="bg-blue-500">Website</span></span> 
+              <span class="relative mt-3 leading-normal md:leading-none text-transparent bg-clip-text text-blue-400 md:inline-block">
+                  Get Notified When It's <span class="bg-white text-gray-900">Down</span>
+            </span>
             </h1>
-            <div class="mx-auto mt-5 text-gray-100 md:mt-12 md:max-w-lg md:text-center lg:text-lg">Start monitor up to 100 websites without login.</div>
-            <div class="flex flex-col items-center mt-12 text-center">
+            <div class="mx-auto mt-8 text-gray-100 md:mt-6 md:max-w-lg md:text-center lg:text-lg">Start monitor up to <span class="font-weight-bold bg-blue-500">100 websites</span> without login.</div>
+            <div class="flex flex-col items-center mt-8 text-center">
                 <span class="relative inline-flex w-full md:w-auto">
                     <a href="/monitor" type="button" class="inline-flex items-center justify-center w-full px-8 py-4 text-base font-bold leading-6 text-white bg-blue-500 border border-transparent rounded-full md:w-auto hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600">
                         Try it free
@@ -120,7 +115,7 @@ export default defineComponent({
 
 <!-- Section 3 -->
 <section class="relative py-16 bg-white min-w-screen animation-fade animation-delay">
-    <div class="container px-0 px-8 mx-auto sm:px-12 xl:px-5">
+    <div class="container px-4 px-8 mx-auto sm:px-12 xl:px-5">
         <p class="text-xs font-bold text-left text-pink-500 uppercase sm:mx-6 sm:text-center sm:text-normal sm:font-bold">
             Got a Question? We’ve got answers.
         </p>
@@ -133,13 +128,19 @@ export default defineComponent({
                 YES! With PiperMonit you can add up to 100 assets free.
             </p>
         </div>
-        <div class="w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">
+        <div class="w-full px-6 py-6 mx-auto mt-7 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">
             <h3 class="text-lg font-bold text-blue-500 sm:text-xl md:text-2xl">Do you offer pricing for pro version?</h3>
             <p class="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">
                 Yes, we do! We plan to add pro subscription in the future, for now just enjoy our free and open source service.
             </p>
         </div>
-        <div class="w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">
+        <div class="w-full px-6 py-6 mx-auto mt-7 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">
+            <h3 class="text-lg font-bold text-blue-500 sm:text-xl md:text-2xl">Why do you only provide Telegram as notification?</h3>
+            <p class="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">
+                Currently only Telegram is available, but we plan to add other channels.
+            </p>
+        </div>
+        <div class="w-full px-6 py-6 mx-auto mt-7 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">
             <h3 class="text-lg font-bold text-blue-500 sm:text-xl md:text-2xl">Can I request a feature?</h3>
             <p class="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">
                 Mention me <a class="text-blue-500 font-weight-bold" href="https://twitter.com/burhannahm">here</a> 
